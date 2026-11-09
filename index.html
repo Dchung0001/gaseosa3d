@@ -1,0 +1,3132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KROMA FIZZ™ — Gaseosa Botánica Prebiótica · Experiencia 3D</title>
+  <meta name="description" content="Todo el golpe refrescante de una gaseosa artesanal con solo 3g de azúcar, 5g de fibra prebiótica y extractos botánicos reales. Explora cada lata en 3D 360°." />
+  <meta name="theme-color" content="#07080c" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ========================================================================
+       DESIGN SYSTEM TOKENS (8pt Grid, WCAG AA Contrast, Dynamic Flavor Theme)
+       ======================================================================== */
+    :root {
+      --bg-base: #06070b;
+      --bg-surface: #0e1018;
+      --bg-elevated: rgba(20, 23, 36, 0.78);
+      --bg-glass: rgba(255, 255, 255, 0.05);
+      --bg-glass-hover: rgba(255, 255, 255, 0.1);
+      --border-subtle: rgba(255, 255, 255, 0.09);
+      --border-strong: rgba(255, 255, 255, 0.2);
+
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+
+      --accent: #ff1e56;
+      --accent-2: #7a04eb;
+      --accent-glow: rgba(255, 30, 86, 0.35);
+      --success: #10b981;
+      --warning: #f59e0b;
+
+      --font-display: 'Syne', sans-serif;
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-xl: 32px;
+      --radius-pill: 9999px;
+
+      --shadow-card: 0 20px 50px rgba(0, 0, 0, 0.45);
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      font-size: 15px;
+    }
+
+    body {
+      overflow-x: hidden;
+      width: 100%;
+      background:
+        radial-gradient(650px circle at 70% 16%, var(--accent-glow), transparent 55%),
+        radial-gradient(550px circle at 15% 75%, rgba(56, 189, 248, 0.07), transparent 55%),
+        var(--bg-base);
+      min-height: 100vh;
+      line-height: 1.45;
+      transition: background 0.6s ease;
+    }
+
+    /* Accesibilidad: Focus visible nítido */
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      background: var(--accent);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      z-index: 200;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .skip-link:focus {
+      top: 12px;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ========================================================================
+       1. TOP ANNOUNCEMENT BAR (CRO Optimized)
+       ======================================================================== */
+    .topbar {
+      background: rgba(14, 16, 24, 0.95);
+      border-bottom: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      font-size: 0.76rem;
+      padding: 6px 14px;
+      position: relative;
+      z-index: 60;
+    }
+    .topbar__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .topbar__promo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+    }
+    .topbar__badge {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: var(--radius-pill);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .topbar__code {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px dashed rgba(255, 255, 255, 0.3);
+      color: #fff;
+      padding: 1px 7px;
+      border-radius: 5px;
+      font-family: monospace;
+      font-size: 0.74rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .topbar__code:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    .topbar__perks {
+      display: flex;
+      gap: 16px;
+      color: var(--text-muted);
+      font-size: 0.74rem;
+    }
+
+    /* ========================================================================
+       2. STICKY NAVIGATION HEADER
+       ======================================================================== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(6, 7, 11, 0.82);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 58px;
+      gap: 18px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: #fff;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+    }
+    .brand__mark {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: grid;
+      place-items: center;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 12px var(--accent-glow);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      padding: 3px;
+      border-radius: var(--radius-pill);
+    }
+    .nav__link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 5px 13px;
+      border-radius: var(--radius-pill);
+      transition: 0.2s;
+    }
+    .nav__link:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .header__actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Botones del Sistema de Diseño */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 9px 18px;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 0.84rem;
+      cursor: pointer;
+      border: 1px solid transparent;
+      text-decoration: none;
+      transition: all 0.25s var(--ease-out-expo);
+      user-select: none;
+    }
+    .btn--primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff;
+      box-shadow: 0 6px 20px var(--accent-glow);
+    }
+    .btn--primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 26px var(--accent-glow);
+      filter: brightness(1.08);
+    }
+    .btn--secondary {
+      background: var(--bg-glass);
+      border-color: var(--border-strong);
+      color: var(--text-primary);
+    }
+    .btn--secondary:hover {
+      background: var(--bg-glass-hover);
+      transform: translateY(-1px);
+    }
+    .btn--sm {
+      padding: 6px 13px;
+      font-size: 0.78rem;
+    }
+    .cart-btn {
+      position: relative;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-strong);
+      color: #fff;
+      padding: 6px 13px;
+      border-radius: var(--radius-pill);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .cart-btn:hover {
+      border-color: var(--accent);
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .cart-btn__badge {
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 800;
+      min-width: 18px;
+      height: 18px;
+      border-radius: 99px;
+      display: inline-grid;
+      place-items: center;
+      padding: 0 5px;
+    }
+
+    /* ========================================================================
+       3. HERO SECTION COMPACTA (CABE 100% EN PANTALLA DE LAPTOP)
+       ======================================================================== */
+    .hero {
+      padding: 18px 0 24px;
+      position: relative;
+    }
+    .hero__grid {
+      display: grid;
+      grid-template-columns: 1fr 0.95fr;
+      gap: 28px;
+      align-items: center;
+    }
+    .hero__copy, .stage-3d-card {
+      min-width: 0;
+    }
+
+    /* Social Proof + Categoría */
+    .hero__meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .rating-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+    .rating-pill .stars {
+      color: #fbbf24;
+      letter-spacing: 1px;
+    }
+    .flavor-counter {
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(255, 255, 255, 0.04);
+      padding: 4px 9px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 2.7vw, 2.45rem);
+      line-height: 1.06;
+      letter-spacing: -0.025em;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .hero__title-accent {
+      background: linear-gradient(135deg, #ffffff 10%, var(--accent) 65%, var(--accent-2) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero__subtitle {
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      line-height: 1.5;
+      max-width: 54ch;
+      margin-bottom: 12px;
+    }
+
+    /* Beneficios Nutricionales Escaneables */
+    .nutrition-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+    .nutri-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .nutri-chip strong {
+      color: var(--accent);
+    }
+
+    /* Selector Visual de Sabores Compacto */
+    .flavor-dock {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 10px 12px;
+      margin-bottom: 12px;
+    }
+    .flavor-dock__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 0.72rem;
+    }
+    .flavor-dock__label {
+      color: var(--text-muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .flavor-dock__current {
+      color: var(--text-primary);
+      font-weight: 700;
+    }
+    .flavor-swatches {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 6px;
+    }
+    .swatch-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding: 7px 4px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1.5px solid transparent;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s var(--ease-out-expo);
+      font-family: var(--font-sans);
+    }
+    .swatch-btn:hover {
+      background: rgba(255, 255, 255, 0.07);
+      transform: translateY(-1px);
+    }
+    .swatch-btn.active {
+      background: rgba(255, 255, 255, 0.09);
+      border-color: var(--accent);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+    }
+    .swatch-btn__dot {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 0.82rem;
+      box-shadow: inset 0 2px 4px rgba(255,255,255,0.35);
+    }
+    .swatch-btn__name {
+      font-size: 0.66rem;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+
+    /* Módulo de Compra D2C Compacto */
+    .buy-box {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      box-shadow: var(--shadow-card);
+    }
+    .pack-options {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .pack-opt {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1.5px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 8px 10px;
+      text-align: left;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: 0.2s;
+      position: relative;
+      font-family: var(--font-sans);
+    }
+    .pack-opt:hover {
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+    .pack-opt.active {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    .pack-opt__save {
+      position: absolute;
+      top: -8px;
+      right: 6px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.58rem;
+      font-weight: 800;
+      padding: 1px 6px;
+      border-radius: var(--radius-pill);
+      text-transform: uppercase;
+    }
+    .pack-opt__title {
+      font-weight: 800;
+      font-size: 0.76rem;
+      display: block;
+    }
+    .pack-opt__price {
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: #fff;
+      margin-top: 1px;
+      display: block;
+    }
+    .pack-opt__unit {
+      font-size: 0.64rem;
+      color: var(--text-muted);
+    }
+
+    .buy-box__cta-row {
+      display: flex;
+      gap: 8px;
+      align-items: stretch;
+    }
+    .qty-stepper {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-pill);
+      padding: 0 4px;
+    }
+    .qty-stepper button {
+      width: 28px;
+      height: 32px;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .qty-stepper span {
+      min-width: 22px;
+      text-align: center;
+      font-weight: 800;
+      font-size: 0.84rem;
+    }
+    .buy-box__submit {
+      flex: 1;
+      font-size: 0.86rem;
+      padding: 10px 16px;
+    }
+    .buy-box__guarantees {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.68rem;
+      color: var(--text-muted);
+    }
+
+    /* ========================================================================
+       4. ESCENARIO 3D INTERACTIVO PROPORCIONADO (440px DE ALTURA)
+       ======================================================================== */
+    .stage-3d-card {
+      position: relative;
+      height: 450px;
+      border-radius: var(--radius-lg);
+      background:
+        radial-gradient(circle at 50% 45%, var(--accent-glow) 0%, rgba(14, 16, 26, 0.5) 68%),
+        var(--bg-surface);
+      border: 1px solid var(--border-strong);
+      box-shadow: var(--shadow-card), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .stage-3d-watermark {
+      position: absolute;
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 4.5vw, 4.2rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.035);
+      letter-spacing: -0.04em;
+      pointer-events: none;
+      user-select: none;
+      text-align: center;
+      line-height: 0.92;
+      z-index: 1;
+    }
+    #can3d-canvas-container {
+      width: 100%;
+      height: 100%;
+      cursor: grab;
+      position: relative;
+      z-index: 2;
+    }
+    #can3d-canvas-container:active {
+      cursor: grabbing;
+    }
+
+    /* HUD Superior Limpio */
+    .stage-hud-top {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      right: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 6;
+      pointer-events: none;
+    }
+    .hud-pill {
+      background: rgba(8, 10, 16, 0.76);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-subtle);
+      padding: 5px 10px;
+      border-radius: var(--radius-pill);
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      pointer-events: auto;
+    }
+    .zoom-controls {
+      display: inline-flex;
+      gap: 4px;
+      pointer-events: auto;
+    }
+    .icon-pill-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(8, 10, 16, 0.78);
+      border: 1px solid var(--border-subtle);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: 0.2s;
+    }
+    .icon-pill-btn:hover {
+      border-color: var(--accent);
+      background: var(--accent);
+    }
+
+    /* Panel flotante legible de Tabla Nutricional */
+    .nutrition-overlay {
+      position: absolute;
+      top: 48px;
+      right: 12px;
+      width: 220px;
+      background: rgba(8, 10, 16, 0.94);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      z-index: 8;
+      opacity: 0;
+      transform: translateX(16px);
+      pointer-events: none;
+      transition: all 0.3s var(--ease-out-expo);
+      font-size: 0.72rem;
+    }
+    .nutrition-overlay.open {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: auto;
+    }
+    .nutrition-overlay h4 {
+      font-size: 0.85rem;
+      font-weight: 800;
+      border-bottom: 2px solid #fff;
+      padding-bottom: 3px;
+      margin-bottom: 5px;
+    }
+    .nutrition-overlay__row {
+      display: flex;
+      justify-content: space-between;
+      padding: 3px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+    .nutrition-overlay__ing {
+      margin-top: 6px;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+
+    /* Dock de Controles 3D Inferior */
+    .stage-dock {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      z-index: 6;
+      background: rgba(8, 10, 16, 0.85);
+      backdrop-filter: blur(16px);
+      padding: 4px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-strong);
+      max-width: 95%;
+      overflow-x: auto;
+    }
+    .dock-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-secondary);
+      padding: 5px 10px;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .dock-btn:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .dock-btn.active {
+      background: rgba(255, 255, 255, 0.14);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+    .dock-btn--action {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff !important;
+    }
+
+    /* ========================================================================
+       5. MARQUEE COMPACTO Y CONTENIDO (SIN DESBORDAR LA PANTALLA)
+       ======================================================================== */
+    .marquee {
+      width: min(1120px, 92%);
+      margin: 8px auto;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.02);
+      padding: 9px 0;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+    .marquee__track {
+      display: flex;
+      gap: 28px;
+      width: max-content;
+      animation: marqueeAnim 28s linear infinite;
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+    }
+    .marquee__track span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .marquee__track i {
+      color: var(--accent);
+      font-style: normal;
+    }
+    @keyframes marqueeAnim {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ========================================================================
+       6. CATÁLOGO DE PRODUCTOS PROPORCIONADO (3 COLUMNAS COMPACTAS)
+       ======================================================================== */
+    .section {
+      padding: 48px 0;
+      position: relative;
+    }
+    .section__header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16px;
+      margin-bottom: 26px;
+    }
+    .section__eyebrow {
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 4px;
+      display: block;
+    }
+    .section__title {
+      font-family: var(--font-display);
+      font-size: clamp(1.45rem, 2.3vw, 2.05rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+    .section__desc {
+      color: var(--text-muted);
+      max-width: 52ch;
+      margin-top: 6px;
+      font-size: 0.86rem;
+    }
+
+    .filter-pills {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+      background: var(--bg-surface);
+      padding: 4px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-subtle);
+    }
+    .filter-pill {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 6px 13px;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 0.76rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .filter-pill.active, .filter-pill:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    /* Tarjeta de Producto Compacta con Render 3D PBR Real */
+    .product-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.22s ease-out, border-color 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-width: 0;
+    }
+    .product-card:hover {
+      border-color: var(--card-accent, var(--accent));
+      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.45), 0 0 24px var(--card-glow);
+    }
+    .product-card__visual {
+      height: 190px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 50% 50%, var(--card-glow), rgba(8, 10, 16, 0.5) 72%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      transform-style: preserve-3d;
+      cursor: pointer;
+      overflow: visible;
+    }
+    .product-card__can-img {
+      height: 168px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 14px 20px rgba(0, 0, 0, 0.65));
+      transform: translateZ(32px) rotateZ(-4deg);
+      transition: transform 0.4s var(--ease-out-expo);
+      pointer-events: none;
+    }
+    .product-card:hover .product-card__can-img {
+      transform: translateZ(48px) rotateZ(2deg) scale(1.07);
+    }
+    .product-card__badge {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: rgba(8, 10, 16, 0.82);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border-strong);
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+      font-size: 0.66rem;
+      font-weight: 700;
+      transform: translateZ(24px);
+    }
+    .product-card__3d-btn {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: rgba(8, 10, 16, 0.86);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border-strong);
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-sans);
+      font-size: 0.66rem;
+      font-weight: 700;
+      cursor: pointer;
+      transform: translateZ(26px);
+      transition: 0.2s;
+    }
+    .product-card__3d-btn:hover {
+      background: var(--card-accent);
+      border-color: #fff;
+    }
+    .product-card__specs {
+      display: flex;
+      gap: 5px;
+      margin-bottom: 6px;
+    }
+    .spec-pill {
+      font-size: 0.64rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 2px 7px;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-secondary);
+    }
+    .product-card__title {
+      font-family: var(--font-display);
+      font-size: 1.12rem;
+      font-weight: 800;
+      margin-bottom: 2px;
+    }
+    .product-card__tagline {
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--card-accent);
+      margin-bottom: 6px;
+    }
+    .product-card__desc {
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      line-height: 1.45;
+      margin-bottom: 12px;
+    }
+    .product-card__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .product-card__price {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 800;
+    }
+    .product-card__price small {
+      font-family: var(--font-sans);
+      font-size: 0.66rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      display: block;
+    }
+
+    /* ========================================================================
+       7. CONFIGURADOR SIX-PACK PERSONALIZADO (UX MEJORADA CON CONTADOR Y PROGRESO)
+       ======================================================================== */
+    .pack-section-card {
+      background: linear-gradient(145deg, rgba(20, 24, 38, 0.9), rgba(9, 11, 18, 0.95));
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-xl);
+      padding: 44px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 40px;
+      align-items: center;
+      box-shadow: var(--shadow-card);
+    }
+    .pack-picker-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin: 20px 0;
+    }
+    .pack-add-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      color: #fff;
+      font-family: var(--font-sans);
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .pack-add-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--border-strong);
+      transform: translateY(-1px);
+    }
+    .pack-box-tray {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+    }
+    .pack-box-tray__head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      font-size: 0.82rem;
+    }
+    .pack-slots-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .tray-slot {
+      height: 144px;
+      border-radius: var(--radius-md);
+      border: 1.5px dashed rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.02);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      position: relative;
+      cursor: pointer;
+      transition: 0.2s;
+      padding: 8px;
+    }
+    .tray-slot.filled {
+      border-style: solid;
+      border-color: rgba(255, 255, 255, 0.24);
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .tray-slot__img {
+      height: 86px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 12px rgba(0,0,0,0.5));
+    }
+    .tray-slot__lbl {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-align: center;
+    }
+    .tray-slot__rm {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.65);
+      color: #fff;
+      border: none;
+      font-size: 0.65rem;
+      cursor: pointer;
+    }
+
+    /* ========================================================================
+       8. TABLA COMPARATIVA ("NOSOTROS VS. GASEOSA TRADICIONAL") + RESEÑAS + FAQ
+       ======================================================================== */
+    .comparison-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .comp-table {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .comp-row {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-subtle);
+      align-items: center;
+      font-size: 0.88rem;
+    }
+    .comp-row:last-child {
+      border-bottom: none;
+    }
+    .comp-row--head {
+      background: rgba(255, 255, 255, 0.04);
+      font-weight: 800;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .comp-col-kroma {
+      color: #fff;
+      font-weight: 800;
+      text-align: center;
+      background: rgba(255, 30, 86, 0.08);
+      padding: 6px 10px;
+      border-radius: 8px;
+    }
+    .comp-col-other {
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    /* Reseñas Verificadas */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .review-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .review-card__stars {
+      color: #fbbf24;
+      font-size: 0.95rem;
+      letter-spacing: 2px;
+    }
+    .review-card__quote {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .review-card__author {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 12px;
+    }
+    .verified-tag {
+      color: var(--success);
+      font-weight: 700;
+      font-size: 0.72rem;
+    }
+
+    /* Acordeón FAQ Accesible */
+    .faq-list {
+      max-width: 820px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    details.faq-item {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 18px 22px;
+      transition: 0.2s;
+    }
+    details.faq-item[open] {
+      border-color: var(--border-strong);
+    }
+    details.faq-item summary {
+      font-weight: 700;
+      font-size: 0.98rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    details.faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+    details.faq-item p {
+      margin-top: 12px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* ========================================================================
+       9. CARRITO LATERAL CON CUPÓN DE DESCUENTO + MODAL DE CHECKOUT
+       ======================================================================== */
+    .backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.68);
+      backdrop-filter: blur(6px);
+      z-index: 90;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(440px, 100%);
+      height: 100vh;
+      background: #0b0d15;
+      border-left: 1px solid var(--border-strong);
+      z-index: 100;
+      transform: translateX(100%);
+      transition: transform 0.35s var(--ease-out-expo);
+      display: flex;
+      flex-direction: column;
+    }
+    .cart-drawer.open {
+      transform: translateX(0);
+    }
+    .cart-drawer__head {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cart-drawer__shipping {
+      padding: 12px 24px;
+      background: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 0.78rem;
+    }
+    .shipping-progress {
+      height: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 99px;
+      overflow: hidden;
+      margin-top: 6px;
+    }
+    .shipping-progress__bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--success));
+      width: 0%;
+      transition: width 0.35s ease;
+    }
+    .cart-drawer__body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 18px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .cart-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      padding: 10px 12px;
+      border-radius: var(--radius-md);
+    }
+    .cart-row__thumb {
+      width: 42px;
+      height: 60px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    .cart-row__info {
+      flex: 1;
+    }
+    .cart-row__title {
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+    .cart-row__price {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    .cart-drawer__foot {
+      padding: 18px 24px;
+      border-top: 1px solid var(--border-subtle);
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .promo-form {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .promo-input {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 8px 12px;
+      color: #fff;
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+    }
+    .summary-line {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+    .summary-line--total {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #fff;
+      padding-top: 8px;
+      border-top: 1px solid var(--border-subtle);
+      margin-bottom: 14px;
+    }
+
+    /* Modal de Checkout Exitoso */
+    .checkout-modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -46%) scale(0.95);
+      width: min(480px, 92%);
+      background: #101320;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      z-index: 120;
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.3s var(--ease-out-expo);
+      text-align: center;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.75);
+    }
+    .checkout-modal.open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 56px 0 36px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+    .footer__grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: rgba(14, 17, 28, 0.95);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--accent);
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: var(--radius-md);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+      z-index: 130;
+      transform: translateY(120%);
+      opacity: 0;
+      transition: 0.3s var(--ease-out-expo);
+      font-weight: 600;
+      font-size: 0.86rem;
+    }
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    @media (max-width: 1024px) {
+      .hero__grid, .pack-section-card, .comparison-wrap {
+        grid-template-columns: 1fr;
+      }
+      .catalog-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .stage-3d-card {
+        height: 390px;
+        order: -1;
+      }
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+      .topbar__perks, .nav {
+        display: none;
+      }
+    }
+    @media (max-width: 640px) {
+      .catalog-grid {
+        grid-template-columns: 1fr;
+      }
+      .flavor-swatches {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .pack-options {
+        grid-template-columns: 1fr;
+      }
+      .pack-section-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <!-- 1. Barra de Promoción con Copiado en 1 Clic -->
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <div class="topbar__promo">
+        <span class="topbar__badge">Nuevo</span>
+        <span>Envío refrigerado GRATIS desde $25 · Usa el cupón</span>
+        <button class="topbar__code" id="copyPromoBtn" title="Haz clic para copiar y aplicar 15% OFF">FIZZ3D (-15%)</button>
+      </div>
+      <div class="topbar__perks">
+        <span>❄️ Entrega en frío 24h</span>
+        <span>🌿 100% Vegano & Prebiótico</span>
+        <span>🔄 Garantía de sabor 30 días</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Header Sticky -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#" class="brand" aria-label="KROMA FIZZ Inicio">
+        <span class="brand__mark">🥫</span>
+        <span>KROMA FIZZ™</span>
+      </a>
+
+      <nav class="nav" aria-label="Navegación principal">
+        <a href="#visor3d" class="nav__link">Estudio 3D</a>
+        <a href="#catalogo" class="nav__link">Sabores (6)</a>
+        <a href="#armar-pack" class="nav__link">Armar Six-Pack</a>
+        <a href="#comparativa" class="nav__link">Por qué Kroma</a>
+        <a href="#faq" class="nav__link">FAQ</a>
+      </nav>
+
+      <div class="header__actions">
+        <a href="#armar-pack" class="btn btn--secondary btn--sm">Armar Caja -20%</a>
+        <button class="cart-btn" id="openCartBtn" aria-label="Abrir cesta de compras">
+          <span>🛒 Cesta</span>
+          <span class="cart-btn__badge" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- ======================================================================
+         3. HERO CON ARQUITECTURA DE INFORMACIÓN D2C + ESCENARIO 3D INTERACTIVO
+         ====================================================================== -->
+    <section class="hero" id="visor3d">
+      <div class="container hero__grid">
+
+        <!-- Columna Izquierda: Propuesta de Valor + Selector + Buy Box -->
+        <div class="hero__copy">
+          <div class="hero__meta-row">
+            <div class="rating-pill">
+              <span class="stars">★★★★★</span>
+              <span><strong>4.9/5</strong> · +1,840 reseñas verificadas</span>
+            </div>
+            <span class="flavor-counter" id="flavorIndexBadge">Sabor 01 / 06</span>
+          </div>
+
+          <h1 class="hero__title">
+            Gaseosa artesanal con <span class="hero__title-accent" id="heroFlavorTitle">Cereza Cósmica</span>.
+          </h1>
+
+          <p class="hero__subtitle" id="heroFlavorDesc">
+            Jugo real de cereza negra ácida, flor de hibisco e infusión de jengibre fresco con micro-carbonatación glacial. Todo el golpe de una gaseosa, sin el exceso de azúcar.
+          </p>
+
+          <!-- Píldoras nutricionales limpias y escaneables -->
+          <div class="nutrition-chips" aria-label="Beneficios nutricionales">
+            <span class="nutri-chip">🔥 <strong id="statCal">35</strong> Calorías</span>
+            <span class="nutri-chip">🍯 <strong id="statSugar">3g</strong> Azúcar de Agave</span>
+            <span class="nutri-chip">🌿 <strong id="statFiber">5g</strong> Fibra Prebiótica</span>
+            <span class="nutri-chip">🚫 0% Edulcorantes Artificiales</span>
+          </div>
+
+          <!-- Selector Visual de los 6 Sabores -->
+          <div class="flavor-dock">
+            <div class="flavor-dock__header">
+              <span class="flavor-dock__label">1. Elige el sabor (Transforma la lata 3D):</span>
+              <span class="flavor-dock__current" id="selectedFlavorName">🍒 Cereza Cósmica</span>
+            </div>
+            <div class="flavor-swatches" id="flavorSwatches" role="radiogroup" aria-label="Sabores de gaseosa"></div>
+          </div>
+
+          <!-- Módulo de Compra (Buy Box) con Selector de Formato -->
+          <div class="buy-box">
+            <div class="flavor-dock__header" style="margin-bottom:10px;">
+              <span class="flavor-dock__label">2. Elige formato de compra:</span>
+              <span style="font-size:0.74rem; color:var(--success); font-weight:700;">✓ En stock refrigerado</span>
+            </div>
+
+            <div class="pack-options" id="formatSelector">
+              <button type="button" class="pack-opt" data-format="single" data-mult="1" data-discount="0">
+                <span class="pack-opt__title">1 Lata 355ml</span>
+                <span class="pack-opt__price" id="priceSingle">$2.90</span>
+                <span class="pack-opt__unit">Prueba individual</span>
+              </button>
+              <button type="button" class="pack-opt active" data-format="pack6" data-mult="6" data-discount="0.14">
+                <span class="pack-opt__save">Popular -14%</span>
+                <span class="pack-opt__title">Six-Pack (x6)</span>
+                <span class="pack-opt__price" id="pricePack6">$14.90</span>
+                <span class="pack-opt__unit">$2.48 por lata</span>
+              </button>
+              <button type="button" class="pack-opt" data-format="pack12" data-mult="12" data-discount="0.22">
+                <span class="pack-opt__save" style="background:var(--success)">Envío Gratis</span>
+                <span class="pack-opt__title">Caja x12 Latas</span>
+                <span class="pack-opt__price" id="pricePack12">$26.90</span>
+                <span class="pack-opt__unit">$2.24 por lata</span>
+              </button>
+            </div>
+
+            <div class="buy-box__cta-row">
+              <div class="qty-stepper" aria-label="Cantidad">
+                <button type="button" id="heroQtyDec" aria-label="Disminuir cantidad">−</button>
+                <span id="heroQtyVal">1</span>
+                <button type="button" id="heroQtyInc" aria-label="Aumentar cantidad">+</button>
+              </div>
+              <button type="button" class="btn btn--primary buy-box__submit" id="heroAddCartBtn">
+                <span>Añadir al Carrito · </span>
+                <span id="heroCtaPrice">$14.90</span>
+              </button>
+            </div>
+
+            <div class="buy-box__guarantees">
+              <span>❄️ Empaque térmico reciclable</span>
+              <span>⚡ Envío gratis desde $25</span>
+              <span>🔒 Pago 100% seguro</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Escenario 3D Interactivo (Sin secuestro de scroll) -->
+        <div class="stage-3d-card">
+          <div class="stage-3d-watermark" id="stageWatermark">CHERRY<br>COSMIC</div>
+
+          <div class="stage-hud-top">
+            <div class="hud-pill">
+              <span>🖱️ Arrastra para girar 360°</span>
+            </div>
+            <div class="zoom-controls">
+              <button type="button" class="icon-pill-btn" id="btnZoomIn" title="Acercar cámara 3D" aria-label="Acercar">+</button>
+              <button type="button" class="icon-pill-btn" id="btnZoomOut" title="Alejar cámara 3D" aria-label="Alejar">−</button>
+              <button type="button" class="icon-pill-btn" id="btnResetCam" title="Restablecer vista" aria-label="Restablecer vista">⟲</button>
+            </div>
+          </div>
+
+          <!-- Panel legible de Información Nutricional sincronizado con el giro trasero 3D -->
+          <div class="nutrition-overlay" id="nutritionOverlay" aria-live="polite">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <h4>Información Nutricional</h4>
+              <button type="button" id="closeNutriOverlay" style="background:none;border:none;color:#fff;cursor:pointer;font-weight:800;">✕</button>
+            </div>
+            <div style="font-size:0.72rem; color:var(--text-muted); margin-bottom:8px;">Tamaño porción: 1 lata (355 ml)</div>
+            <div class="nutrition-overlay__row"><span><strong>Calorías</strong></span><strong id="ovCal">35</strong></div>
+            <div class="nutrition-overlay__row"><span>Grasa Total</span><span>0g (0%)</span></div>
+            <div class="nutrition-overlay__row"><span>Sodio</span><span>15mg (1%)</span></div>
+            <div class="nutrition-overlay__row"><span>Carbohidratos Totales</span><span>10g (4%)</span></div>
+            <div class="nutrition-overlay__row"><span><strong>Fibra Prebiótica</strong></span><strong id="ovFiber">5g (18%)</strong></div>
+            <div class="nutrition-overlay__row"><span>Azúcares (Agave Org.)</span><span id="ovSugar">3g</span></div>
+            <div class="nutrition-overlay__row"><span>Vitamina C Natural</span><span>45mg (50%)</span></div>
+            <p class="nutrition-overlay__ing" id="ovIngredients"></p>
+          </div>
+
+          <!-- Contenedor WebGL Three.js -->
+          <div id="can3d-canvas-container" role="img" aria-label="Modelo 3D interactivo de lata de gaseosa KROMA FIZZ"></div>
+
+          <!-- Dock Inferior de Controles 3D -->
+          <div class="stage-dock">
+            <button type="button" class="dock-btn dock-btn--action" id="btnPopCan">
+              🥫 ¡Destapar Lata!
+            </button>
+            <button type="button" class="dock-btn" id="btnInspectBack">
+              📋 Reverso Nutricional
+            </button>
+            <button type="button" class="dock-btn" id="btnToggleTrio">
+              ✨ Trío 3D
+            </button>
+            <button type="button" class="dock-btn active" id="btnToggleFrost">
+              💧 Condensación
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. Marquee -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span><i>✦</i> 5g Fibra Prebiótica de Achicoria</span>
+        <span><i>✦</i> Jugo de Fruta Prensado en Frío</span>
+        <span><i>✦</i> Micro-Carbonatación 4.2 Vol</span>
+        <span><i>✦</i> Sin Jarabe de Maíz ni Aspartamo</span>
+        <span><i>✦</i> Latas 100% Reciclables Infinitamente</span>
+        <span><i>✦</i> 5g Fibra Prebiótica de Achicoria</span>
+        <span><i>✦</i> Jugo de Fruta Prensado en Frío</span>
+        <span><i>✦</i> Micro-Carbonatación 4.2 Vol</span>
+        <span><i>✦</i> Sin Jarabe de Maíz ni Aspartamo</span>
+        <span><i>✦</i> Latas 100% Reciclables Infinitamente</span>
+      </div>
+    </div>
+
+    <!-- ======================================================================
+         5. CATÁLOGO CON RENDERS 3D PBR REALES GENERADOS EN VIVO + TILT 3D
+         ====================================================================== -->
+    <section class="section" id="catalogo">
+      <div class="container">
+        <div class="section__header">
+          <div>
+            <span class="section__eyebrow">Colección 2026 · Renderizado PBR 3D</span>
+            <h2 class="section__title">Explora Nuestras Latas en 3D</h2>
+            <p class="section__desc">
+              Cada lata del catálogo es generada por nuestro motor 3D con iluminación de estudio. Pasa el cursor para inclinar la lata en 3D o súbela al visor 360°.
+            </p>
+          </div>
+          <div class="filter-pills" id="catalogFilters">
+            <button type="button" class="filter-pill active" data-filter="all">Todas (6)</button>
+            <button type="button" class="filter-pill" data-filter="frutal">Frutales</button>
+            <button type="button" class="filter-pill" data-filter="citrica">Cítricas</button>
+            <button type="button" class="filter-pill" data-filter="clasica">Clásicas Zero</button>
+          </div>
+        </div>
+
+        <div class="catalog-grid" id="catalogGrid"></div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         6. ARMADOR INTERACTIVO DE SIX-PACK PERSONALIZADO
+         ====================================================================== -->
+    <section class="section" id="armar-pack">
+      <div class="container">
+        <div class="pack-section-card">
+          <div>
+            <span class="section__eyebrow">Personalización · Ahorra 15%</span>
+            <h2 class="section__title">Arma tu Six-Pack 3D a Medida</h2>
+            <p class="section__desc">
+              Elige tus 6 latas favoritas para crear tu caja personalizada. Haz clic en cualquier sabor para añadirlo a tu bandeja refrigerada.
+            </p>
+
+            <div class="pack-picker-grid" id="packPickerGrid"></div>
+
+            <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; margin-top:24px; padding-top:18px; border-top:1px solid var(--border-subtle);">
+              <div>
+                <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; font-weight:700;">
+                  Total Six-Pack Personalizado
+                </div>
+                <div style="font-family:var(--font-display); font-size:1.9rem; font-weight:800;">
+                  $14.90 <span style="font-size:0.9rem; color:var(--text-muted); text-decoration:line-through; font-weight:500;">$17.40</span>
+                </div>
+              </div>
+              <button type="button" class="btn btn--primary" id="addCustomBoxBtn">
+                📦 Añadir Caja Personalizada (<span id="customBoxBtnCount">6/6</span>)
+              </button>
+            </div>
+          </div>
+
+          <div class="pack-box-tray">
+            <div class="pack-box-tray__head">
+              <strong>Tu Caja Refrigerada (6 Espacios)</strong>
+              <button type="button" id="resetPackBtn" style="background:none;border:none;color:var(--text-muted);font-size:0.76rem;cursor:pointer;text-decoration:underline;">Vaciar caja</button>
+            </div>
+            <div class="pack-slots-grid" id="packSlotsGrid"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         7. COMPARATIVA HONESTA (CRO & TRANSPARENCIA NUTRICIONAL)
+         ====================================================================== -->
+    <section class="section" id="comparativa">
+      <div class="container">
+        <div class="comparison-wrap">
+          <div>
+            <span class="section__eyebrow">Nutrición Transparente</span>
+            <h2 class="section__title">El Sabor que Amas.<br>Sin la Resaca de Azúcar.</h2>
+            <p class="section__desc" style="margin-bottom:24px;">
+              Formulamos KROMA FIZZ junto a botánicos y microbiólogos para reemplazar el jarabe de maíz de alta fructosa por fibra prebiótica de raíz de achicoria y extractos reales.
+            </p>
+            <a href="#visor3d" class="btn btn--secondary">Inspeccionar Etiqueta en 3D ↑</a>
+          </div>
+
+          <div class="comp-table" role="region" aria-label="Tabla comparativa nutricional">
+            <div class="comp-row comp-row--head">
+              <span>Característica</span>
+              <span style="text-align:center; color:var(--accent);">KROMA FIZZ™</span>
+              <span style="text-align:center;">Gaseosa Tradicional</span>
+            </div>
+            <div class="comp-row">
+              <strong>Azúcares por lata</strong>
+              <span class="comp-col-kroma">2g – 4g (Agave)</span>
+              <span class="comp-col-other">39g – 44g</span>
+            </div>
+            <div class="comp-row">
+              <strong>Calorías</strong>
+              <span class="comp-col-kroma">10 – 40 kcal</span>
+              <span class="comp-col-other">150 – 170 kcal</span>
+            </div>
+            <div class="comp-row">
+              <strong>Fibra Prebiótica</strong>
+              <span class="comp-col-kroma">✓ 5g (Inulina)</span>
+              <span class="comp-col-other">0g</span>
+            </div>
+            <div class="comp-row">
+              <strong>Jugo y Botánicos Reales</strong>
+              <span class="comp-col-kroma">✓ Prensado en frío</span>
+              <span class="comp-col-other">✕ Saborizantes sintéticos</span>
+            </div>
+            <div class="comp-row">
+              <strong>Aspartamo / Sucralosa</strong>
+              <span class="comp-col-kroma">✓ 0% Libre</span>
+              <span class="comp-col-other">Frecuente en versiones Zero</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         8. PRUEBA SOCIAL (RESEÑAS VERIFICADAS) & FAQ
+         ====================================================================== -->
+    <section class="section" style="padding-top:20px;">
+      <div class="container">
+        <div class="section__header">
+          <div>
+            <span class="section__eyebrow">+1,840 Clientes Felices</span>
+            <h2 class="section__title">Lo que Dicen Quienes ya Destaparon KROMA</h2>
+          </div>
+        </div>
+
+        <div class="reviews-grid">
+          <article class="review-card">
+            <div>
+              <div class="review-card__stars">★★★★★</div>
+              <p class="review-card__quote" style="margin-top:10px;">
+                “Dejé las gaseosas convencionales hace un año, pero extrañaba el gas fuerte. <strong>Cereza Cósmica</strong> tiene una carbonatación brutal y sabe a cereza ácida de verdad.”
+              </p>
+            </div>
+            <div class="review-card__author">
+              <strong>Valentina R. · Madrid</strong>
+              <span class="verified-tag">✓ Compra Verificada</span>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div>
+              <div class="review-card__stars">★★★★★</div>
+              <p class="review-card__quote" style="margin-top:10px;">
+                “El visor 3D de la web me convenció de revisar los ingredientes y pedí el Six-Pack. <strong>Cítrico Eléctrico</strong> con hielo después de entrenar es imbatible.”
+              </p>
+            </div>
+            <div class="review-card__author">
+              <strong>Mateo G. · Ciudad de México</strong>
+              <span class="verified-tag">✓ Compra Verificada</span>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div>
+              <div class="review-card__stars">★★★★★</div>
+              <p class="review-card__quote" style="margin-top:10px;">
+                “Somos un estudio de diseño y compramos la <strong>Caja x12</strong> cada semana para la oficina. Cero bajón de azúcar a media tarde y las latas son preciosas.”
+              </p>
+            </div>
+            <div class="review-card__author">
+              <strong>Sofía M. · Buenos Aires</strong>
+              <span class="verified-tag">✓ Compra Verificada</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq" style="padding-top:10px;">
+      <div class="container">
+        <div style="text-align:center; margin-bottom:36px;">
+          <span class="section__eyebrow">Dudas Frecuentes</span>
+          <h2 class="section__title">Preguntas sobre KROMA FIZZ™</h2>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>¿Necesitan refrigeración antes de abrirse? <span>＋</span></summary>
+            <p>Nuestras latas son estables a temperatura ambiente gracias a su pasteurización en túnel suave, pero las enviamos en empaque isotérmico y recomendamos enfriarlas a <strong>2 °C – 4 °C</strong> antes de destapar para disfrutar la micro-carbonatación al máximo.</p>
+          </details>
+          <details class="faq-item">
+            <summary>¿Qué hacen los 5g de fibra prebiótica en la gaseosa? <span>＋</span></summary>
+            <p>Utilizamos inulina orgánica extraída de la raíz de achicoria. Aporta cuerpo sedoso a la burbuja y alimenta selectivamente las bacterias beneficiosas de tu microbiota digestiva sin alterar el sabor frutal.</p>
+          </details>
+          <details class="faq-item">
+            <summary>¿Cómo funciona la garantía de sabor de 30 días? <span>＋</span></summary>
+            <p>Si es tu primer pedido de KROMA FIZZ y algún sabor de tu Six-Pack no te enamora, te reembolsamos o cambiamos tu caja sin que tengas que devolver las latas restantes.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div style="display:flex; align-items:center; gap:10px; color:#fff; font-family:var(--font-display); font-weight:800;">
+        <span class="brand__mark" style="width:28px; height:28px; font-size:0.9rem;">🥫</span>
+        <span>KROMA FIZZ™ · Craft Prebiotic Soda</span>
+      </div>
+      <div>© 2026 KROMA FIZZ Lab. Diseño UX/UI D2C & Motor WebGL Three.js PBR.</div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       CARRITO LATERAL CON DESGLOSE Y CUPÓN
+       ======================================================================== -->
+  <div class="backdrop" id="cartBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Carrito de compras">
+    <div class="cart-drawer__head">
+      <h3 style="font-family:var(--font-display); font-size:1.25rem;">Tu Cesta Refrigerada ❄️</h3>
+      <button type="button" class="btn btn--secondary btn--sm" id="closeCartBtn" aria-label="Cerrar carrito">✕</button>
+    </div>
+
+    <div class="cart-drawer__shipping">
+      <div id="shippingMsg">Añade $25.00 para envío refrigerado GRATIS</div>
+      <div class="shipping-progress">
+        <div class="shipping-progress__bar" id="shippingBar"></div>
+      </div>
+    </div>
+
+    <div class="cart-drawer__body" id="cartList"></div>
+
+    <div class="cart-drawer__foot">
+      <form class="promo-form" id="promoForm">
+        <input type="text" class="promo-input" id="promoInput" placeholder="Código (ej. FIZZ3D)" aria-label="Código promocional" />
+        <button type="submit" class="btn btn--secondary btn--sm">Aplicar</button>
+      </form>
+
+      <div class="summary-line">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">$0.00</span>
+      </div>
+      <div class="summary-line" id="discountRow" style="display:none; color:var(--success); font-weight:700;">
+        <span>Descuento (FIZZ3D -15%)</span>
+        <span id="cartDiscount">-$0.00</span>
+      </div>
+      <div class="summary-line">
+        <span>Envío isotérmico</span>
+        <span id="cartShipping">$3.90</span>
+      </div>
+      <div class="summary-line summary-line--total">
+        <span>Total</span>
+        <span id="cartTotal">$0.00</span>
+      </div>
+
+      <button type="button" class="btn btn--primary" id="checkoutBtn" style="width:100%; padding:14px;">
+        ⚡ Tramitar Pedido Seguro
+      </button>
+    </div>
+  </aside>
+
+  <!-- Modal de Confirmación de Pedido -->
+  <div class="checkout-modal" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div style="font-size:3rem; margin-bottom:10px;">🥫✨</div>
+    <h3 id="modalTitle" style="font-family:var(--font-display); font-size:1.6rem; margin-bottom:8px;">¡Pedido Preparándose en Frío!</h3>
+    <p style="color:var(--text-secondary); font-size:0.92rem; margin-bottom:20px;">
+      Hemos recibido tu orden <strong id="orderNumber">#KF-8492</strong>. Recibirás tus latas KROMA FIZZ a temperatura controlada en las próximas 24 horas.
+    </p>
+    <button type="button" class="btn btn--primary" id="closeModalBtn" style="width:100%;">Seguir Explorando en 3D</button>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toastMsg" role="status" aria-live="polite"></div>
+
+  <!-- Three.js ImportMap -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+
+  <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+    // =========================================================================
+    // 1. BASE DE DATOS DE SABORES
+    // =========================================================================
+    const FLAVORS = [
+      {
+        id: 'cherry',
+        index: '01',
+        name: 'Cereza Cósmica',
+        shortName: 'Cereza',
+        watermark: 'CHERRY\nCOSMIC',
+        tagline: 'Cereza Negra Ácida & Flor de Hibisco',
+        category: 'frutal',
+        badge: '🍒 Top Ventas',
+        desc: 'Jugo real de cereza negra ácida, flor de hibisco e infusión de jengibre fresco con micro-carbonatación glacial.',
+        price: 2.90,
+        cal: 35,
+        sugar: '3g',
+        fiber: '5g',
+        primary: '#ff1e56',
+        secondary: '#7a04eb',
+        glow: 'rgba(255, 30, 86, 0.36)',
+        accentHex: 0xff1e56,
+        emoji: '🍒',
+        ingredients: 'Ingredientes: Agua purificada carbonatada, jugo de cereza negra ácida (12%), inulina de raíz de achicoria (5g fibra prebiótica), néctar de agave orgánico, extracto de flor de hibisco, jengibre fresco, ácido málico.'
+      },
+      {
+        id: 'citrus',
+        index: '02',
+        name: 'Cítrico Eléctrico',
+        shortName: 'Yuzu Lima',
+        watermark: 'ELECTRIC\nYUZU',
+        tagline: 'Yuzu Japonés, Lima Persa & Menta',
+        category: 'citrica',
+        badge: '🍋 Ultra Refrescante',
+        desc: 'Explosión cítrica de yuzu japonés y lima exprimida en frío con un toque botánico de hierbabuena y electrolitos.',
+        price: 2.90,
+        cal: 25,
+        sugar: '2g',
+        fiber: '5g',
+        primary: '#00e599',
+        secondary: '#0096c7',
+        glow: 'rgba(0, 229, 153, 0.32)',
+        accentHex: 0x00e599,
+        emoji: '🍋',
+        ingredients: 'Ingredientes: Agua purificada carbonatada, zumo de lima persa y yuzu japonés (10%), inulina de achicoria (5g fibra), agave orgánico, infusión de menta verde, pizca de sal marina.'
+      },
+      {
+        id: 'mango',
+        index: '03',
+        name: 'Mango Solar',
+        shortName: 'Mango',
+        watermark: 'MANGO\nSOLAR',
+        tagline: 'Mango Alfonso, Maracuyá & Toque Chili',
+        category: 'frutal',
+        badge: '🥭 Edición Verano',
+        desc: 'Dulzor tropical de mango maduro y maracuyá ácido con un sutil cosquilleo final de pimienta cayena y cúrcuma.',
+        price: 3.10,
+        cal: 40,
+        sugar: '4g',
+        fiber: '5g',
+        primary: '#ff8800',
+        secondary: '#e11d48',
+        glow: 'rgba(255, 136, 0, 0.35)',
+        accentHex: 0xff8800,
+        emoji: '🥭',
+        ingredients: 'Ingredientes: Agua purificada carbonatada, puré de mango Alfonso y maracuyá (14%), inulina prebiótica (5g), néctar de agave, extracto de cúrcuma y toque de cayena.'
+      },
+      {
+        id: 'berry',
+        index: '04',
+        name: 'Mora Glacial',
+        shortName: 'Mora Azul',
+        watermark: 'BERRY\nFROST',
+        tagline: 'Arándano Silvestre, Mora Azul & Lavanda',
+        category: 'frutal',
+        badge: '🫐 Antioxidante',
+        desc: 'Mezcla profunda de bayas nórdicas, mora azul silvestre y destellos aromáticos de flores de lavanda orgánica.',
+        price: 2.90,
+        cal: 30,
+        sugar: '3g',
+        fiber: '6g',
+        primary: '#6366f1',
+        secondary: '#db2777',
+        glow: 'rgba(99, 102, 241, 0.38)',
+        accentHex: 0x6366f1,
+        emoji: '🫐',
+        ingredients: 'Ingredientes: Agua purificada carbonatada, jugo de mora azul y arándano (11%), fibra de achicoria (6g), agave orgánico, extracto de flores de lavanda.'
+      },
+      {
+        id: 'cola',
+        index: '05',
+        name: 'Botanical Cola Zero',
+        shortName: 'Cola Zero',
+        watermark: 'KROMA\nCOLA',
+        tagline: 'Nuez de Kola, Vainilla de Madagascar & Canela',
+        category: 'clasica',
+        badge: '🥤 0g Azúcar',
+        desc: 'Reinterpretación artesanal de la cola clásica: especias tostadas, corteza de canela ceilán, vainilla y 0g de azúcar.',
+        price: 2.80,
+        cal: 10,
+        sugar: '0g',
+        fiber: '5g',
+        primary: '#e11d48',
+        secondary: '#451a03',
+        glow: 'rgba(225, 29, 72, 0.34)',
+        accentHex: 0xe11d48,
+        emoji: '🥤',
+        ingredients: 'Ingredientes: Agua purificada carbonatada, inulina de achicoria (5g fibra), extracto de nuez de kola, vainilla Bourbon, canela de Ceilán, alulosa natural.'
+      },
+      {
+        id: 'grapefruit',
+        index: '06',
+        name: 'Pomelo Rosa Neon',
+        shortName: 'Pomelo',
+        watermark: 'PINK\nPOMELO',
+        tagline: 'Pomelo Rubí, Naranja Sanguina & Romero',
+        category: 'citrica',
+        badge: '🍊 Favorito Mixólogos',
+        desc: 'Amargor elegante de pomelo rosado rubí equilibrado con jugo de naranja sanguina italiana e infusión de romero.',
+        price: 3.00,
+        cal: 30,
+        sugar: '3g',
+        fiber: '5g',
+        primary: '#ff4d6d',
+        secondary: '#f59e0b',
+        glow: 'rgba(255, 77, 109, 0.36)',
+        accentHex: 0xff4d6d,
+        emoji: '🍊',
+        ingredients: 'Ingredientes: Agua purificada carbonatada, zumo de pomelo rubí y naranja sanguina (12%), inulina prebiótica (5g), agave orgánico, extracto de romero fresco.'
+      }
+    ];
+
+    let activeFlavor = FLAVORS[0];
+    let activeFormat = { code: 'pack6', label: 'Six-Pack (x6)', mult: 6, discount: 0.14 };
+    let heroQty = 1;
+    let isTrioMode = false;
+    let isFrostEnabled = true;
+    let isInspectingBack = false;
+    let promoApplied = false;
+
+    // =========================================================================
+    // 2. GENERADOR DE TEXTURAS 2K WRAP-AROUND (FRENTE + REVERSO NUTRICIONAL)
+    // =========================================================================
+    const textureCache = new Map();
+    const canSnapshotCache = new Map();
+
+    function getCanTexture(flavor) {
+      if (textureCache.has(flavor.id)) return textureCache.get(flavor.id);
+
+      const canvas = document.createElement('canvas');
+      canvas.width = 2048;
+      canvas.height = 1024;
+      const ctx = canvas.getContext('2d');
+
+      const grad = ctx.createLinearGradient(0, 0, 2048, 1024);
+      grad.addColorStop(0, flavor.primary);
+      grad.addColorStop(0.5, flavor.secondary);
+      grad.addColorStop(1, flavor.primary);
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, 2048, 1024);
+
+      // Ondas botánicas suaves
+      ctx.save();
+      ctx.globalAlpha = 0.14;
+      ctx.fillStyle = '#ffffff';
+      for (let i = 0; i < 5; i++) {
+        ctx.beginPath();
+        for (let x = 0; x <= 2048; x += 32) {
+          const y = 220 + i * 150 + Math.sin((x / 2048) * Math.PI * 4 + i) * 60;
+          if (x === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.lineTo(2048, 1024);
+        ctx.lineTo(0, 1024);
+        ctx.closePath();
+        ctx.fill();
+      }
+      ctx.restore();
+
+      // Filetes metálicos superior e inferior
+      ctx.fillStyle = 'rgba(255,255,255,0.28)';
+      ctx.fillRect(0, 0, 2048, 24);
+      ctx.fillRect(0, 1000, 2048, 24);
+
+      // CARA FRONTAL (Centro X = 1024)
+      ctx.save();
+      ctx.textAlign = 'center';
+
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.36)';
+      ctx.beginPath();
+      ctx.roundRect(774, 68, 500, 54, 27);
+      ctx.fill();
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '800 25px "Plus Jakarta Sans", sans-serif';
+      ctx.fillText('PREBIOTIC CRAFT SODA · 355 ML', 1024, 104);
+
+      ctx.fillStyle = '#ffffff';
+      ctx.shadowColor = 'rgba(0,0,0,0.35)';
+      ctx.shadowBlur = 20;
+      ctx.font = '900 164px "Syne", sans-serif';
+      ctx.fillText('KROMA', 1024, 300);
+
+      ctx.font = '800 74px "Syne", sans-serif';
+      ctx.fillText('F I Z Z', 1024, 392);
+      ctx.shadowBlur = 0;
+
+      // Medallón central
+      ctx.beginPath();
+      ctx.arc(1024, 565, 114, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
+      ctx.fill();
+      ctx.lineWidth = 5;
+      ctx.strokeStyle = '#ffffff';
+      ctx.stroke();
+
+      ctx.font = '114px sans-serif';
+      ctx.fillText(flavor.emoji, 1024, 606);
+
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '900 72px "Plus Jakarta Sans", sans-serif';
+      ctx.fillText(flavor.name.toUpperCase(), 1024, 785);
+
+      ctx.fillStyle = 'rgba(255,255,255,0.92)';
+      ctx.font = '700 29px "Plus Jakarta Sans", sans-serif';
+      ctx.fillText(flavor.tagline, 1024, 840);
+
+      const pills = [`${flavor.cal} KCAL`, `${flavor.sugar} AZÚCAR`, `${flavor.fiber} FIBRA`];
+      pills.forEach((txt, idx) => {
+        const px = 680 + idx * 344;
+        ctx.fillStyle = 'rgba(0,0,0,0.42)';
+        ctx.beginPath();
+        ctx.roundRect(px - 145, 888, 290, 60, 30);
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(255,255,255,0.5)';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        ctx.fillStyle = '#ffffff';
+        ctx.font = '800 24px "Plus Jakarta Sans", sans-serif';
+        ctx.fillText(txt, px, 927);
+      });
+      ctx.restore();
+
+      // CARA TRASERA: TABLA NUTRICIONAL EN EL CENTRO DEL REVERSO (X = 0 / 2048)
+      // Dibujamos en X = 80..500 para que al girar 180° quede perfectamente visible
+      ctx.save();
+      const bx = 90, by = 85, bw = 420, bh = 850;
+      ctx.fillStyle = 'rgba(8, 10, 16, 0.9)';
+      ctx.beginPath();
+      ctx.roundRect(bx, by, bw, bh, 20);
+      ctx.fill();
+      ctx.strokeStyle = '#ffffff';
+      ctx.lineWidth = 4;
+      ctx.stroke();
+
+      ctx.fillStyle = '#ffffff';
+      ctx.textAlign = 'left';
+      ctx.font = '900 40px "Plus Jakarta Sans", sans-serif';
+      ctx.fillText('Datos de Nutrición', bx + 24, by + 60);
+      ctx.fillRect(bx + 24, by + 78, bw - 48, 7);
+
+      ctx.font = '700 23px "Plus Jakarta Sans", sans-serif';
+      ctx.fillText('1 porción por envase (355 ml)', bx + 24, by + 118);
+      ctx.fillRect(bx + 24, by + 136, bw - 48, 3);
+
+      ctx.font = '900 52px "Plus Jakarta Sans", sans-serif';
+      ctx.fillText(`Calorías   ${flavor.cal}`, bx + 24, by + 200);
+      ctx.fillRect(bx + 24, by + 220, bw - 48, 6);
+
+      const rows = [
+        ['Grasa Total 0g', '0%'],
+        ['Sodio 15mg', '1%'],
+        ['Carbohidratos 10g', '4%'],
+        [`Fibra Prebiótica ${flavor.fiber}`, '18%'],
+        [`Azúcares (Agave) ${flavor.sugar}`, ''],
+        ['Proteína 0g', '0%'],
+        ['Vitamina C 45mg', '50%']
+      ];
+      rows.forEach((r, i) => {
+        const ry = by + 270 + i * 54;
+        ctx.font = '700 24px "Plus Jakarta Sans", sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText(r[0], bx + 24, ry);
+        ctx.textAlign = 'right';
+        ctx.fillText(r[1], bx + bw - 24, ry);
+        ctx.fillStyle = 'rgba(255,255,255,0.22)';
+        ctx.fillRect(bx + 24, ry + 14, bw - 48, 2);
+        ctx.fillStyle = '#ffffff';
+      });
+
+      // Código de barras en X = 1580
+      const cx = 1580;
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath();
+      ctx.roundRect(cx, 560, 290, 350, 16);
+      ctx.fill();
+      ctx.fillStyle = '#07080d';
+      for (let b = 0; b < 34; b++) {
+        const w = (b % 3 === 0) ? 6 : (b % 2 === 0 ? 3 : 2);
+        ctx.fillRect(cx + 26 + b * 7, 590, w, 245);
+      }
+      ctx.font = '800 22px monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText('8 402910 355019', cx + 145, 875);
+      ctx.restore();
+
+      const tex = new THREE.CanvasTexture(canvas);
+      tex.colorSpace = THREE.SRGBColorSpace;
+      tex.wrapS = THREE.RepeatWrapping;
+      tex.anisotropy = 8;
+
+      textureCache.set(flavor.id, tex);
+      return tex;
+    }
+
+    // =========================================================================
+    // 3. ESCENA THREE.JS PBR (CON ZOOM PROTEGIDO PARA NO BLOQUEAR EL SCROLL)
+    // =========================================================================
+    const container = document.getElementById('can3d-canvas-container');
+    const scene = new THREE.Scene();
+
+    const camera = new THREE.PerspectiveCamera(34, container.clientWidth / container.clientHeight, 0.1, 100);
+    camera.position.set(0, 0.1, 6.8);
+
+    const renderer = new THREE.WebGLRenderer({
+      antialias: true,
+      alpha: true,
+      powerPreference: 'high-performance',
+      preserveDrawingBuffer: true
+    });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.28;
+    container.appendChild(renderer.domElement);
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.06;
+    controls.enablePan = false;
+    // CORRECCIÓN UX CRÍTICA: Desactivar zoom por rueda para jamás bloquear el scroll vertical de la página
+    controls.enableZoom = false;
+    controls.minDistance = 3.6;
+    controls.maxDistance = 8.8;
+    controls.maxPolarAngle = Math.PI * 0.78;
+    controls.minPolarAngle = Math.PI * 0.2;
+
+    // Entorno HDRI procedural de estudio
+    function createStudioEnv() {
+      const c = document.createElement('canvas');
+      c.width = 1024;
+      c.height = 512;
+      const ctx = c.getContext('2d');
+      const g = ctx.createLinearGradient(0, 0, 0, 512);
+      g.addColorStop(0, '#1e293b');
+      g.addColorStop(0.5, '#0f172a');
+      g.addColorStop(1, '#020617');
+      ctx.fillStyle = g;
+      ctx.fillRect(0, 0, 1024, 512);
+
+      // Softboxes verticales para reflejos especulares de alta gama en aluminio
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.96)';
+      ctx.fillRect(140, 30, 100, 440);
+      ctx.fillRect(760, 40, 80, 420);
+      ctx.fillStyle = 'rgba(255, 235, 210, 0.7)';
+      ctx.fillRect(450, 20, 130, 170);
+
+      const envTex = new THREE.CanvasTexture(c);
+      envTex.mapping = THREE.EquirectangularReflectionMapping;
+      envTex.colorSpace = THREE.SRGBColorSpace;
+      return envTex;
+    }
+    scene.environment = createStudioEnv();
+
+    scene.add(new THREE.AmbientLight(0xffffff, 0.75));
+    const keyLight = new THREE.DirectionalLight(0xffffff, 2.5);
+    keyLight.position.set(4, 6, 5);
+    scene.add(keyLight);
+
+    const rimLight = new THREE.PointLight(0xff1e56, 5.5, 14);
+    rimLight.position.set(-3.5, -1.5, -2.5);
+    scene.add(rimLight);
+
+    const aluminumMat = new THREE.MeshStandardMaterial({
+      color: 0xe2e8f0,
+      metalness: 0.93,
+      roughness: 0.16,
+      envMapIntensity: 1.65
+    });
+
+    const darkGrooveMat = new THREE.MeshStandardMaterial({
+      color: 0x475569,
+      metalness: 0.85,
+      roughness: 0.35
+    });
+
+    const dropletMat = new THREE.MeshPhysicalMaterial({
+      color: 0xffffff,
+      transmission: 0.92,
+      opacity: 1,
+      roughness: 0.04,
+      ior: 1.333,
+      thickness: 0.16,
+      envMapIntensity: 2.1
+    });
+
+    function buildSodaCanMesh(flavor) {
+      const canGroup = new THREE.Group();
+      const R = 0.78;
+      const H = 2.65;
+
+      const bodyGeo = new THREE.CylinderGeometry(R, R, H, 72, 1, true);
+      bodyGeo.rotateY(-Math.PI / 2);
+
+      const labelMat = new THREE.MeshPhysicalMaterial({
+        map: getCanTexture(flavor),
+        metalness: 0.36,
+        roughness: 0.2,
+        clearcoat: 0.68,
+        clearcoatRoughness: 0.14,
+        envMapIntensity: 1.4
+      });
+      const bodyMesh = new THREE.Mesh(bodyGeo, labelMat);
+      canGroup.add(bodyMesh);
+
+      const topProfile = [
+        new THREE.Vector2(R, H / 2),
+        new THREE.Vector2(R * 0.99, H / 2 + 0.05),
+        new THREE.Vector2(R * 0.84, H / 2 + 0.26),
+        new THREE.Vector2(R * 0.81, H / 2 + 0.32),
+        new THREE.Vector2(R * 0.84, H / 2 + 0.35),
+        new THREE.Vector2(R * 0.79, H / 2 + 0.35),
+        new THREE.Vector2(R * 0.78, H / 2 + 0.29),
+        new THREE.Vector2(0, H / 2 + 0.29)
+      ];
+      canGroup.add(new THREE.Mesh(new THREE.LatheGeometry(topProfile, 64), aluminumMat));
+
+      const botProfile = [
+        new THREE.Vector2(0, -H / 2 - 0.12),
+        new THREE.Vector2(R * 0.62, -H / 2 - 0.18),
+        new THREE.Vector2(R * 0.76, -H / 2 - 0.24),
+        new THREE.Vector2(R * 0.84, -H / 2 - 0.20),
+        new THREE.Vector2(R * 0.98, -H / 2 - 0.04),
+        new THREE.Vector2(R, -H / 2)
+      ];
+      canGroup.add(new THREE.Mesh(new THREE.LatheGeometry(botProfile, 64), aluminumMat));
+
+      // Anilla superior (Pull-Tab)
+      const lidY = H / 2 + 0.295;
+      const tabGroup = new THREE.Group();
+      tabGroup.position.set(0, lidY, 0);
+
+      const mouthGeo = new THREE.CylinderGeometry(0.18, 0.18, 0.012, 24);
+      mouthGeo.scale(1, 1, 1.35);
+      const mouthMesh = new THREE.Mesh(mouthGeo, darkGrooveMat);
+      mouthMesh.position.set(0, 0, 0.22);
+      tabGroup.add(mouthMesh);
+
+      tabGroup.add(new THREE.Mesh(new THREE.CylinderGeometry(0.055, 0.055, 0.03, 16), aluminumMat));
+
+      const pullRingPivot = new THREE.Group();
+      const ringOuter = new THREE.Mesh(new THREE.TorusGeometry(0.14, 0.026, 12, 28), aluminumMat);
+      ringOuter.rotation.x = Math.PI / 2;
+      ringOuter.position.set(0, 0.018, -0.15);
+      pullRingPivot.add(ringOuter);
+
+      const ringFront = new THREE.Mesh(new THREE.TorusGeometry(0.09, 0.022, 10, 20), aluminumMat);
+      ringFront.rotation.x = Math.PI / 2;
+      ringFront.position.set(0, 0.018, 0.08);
+      pullRingPivot.add(ringFront);
+
+      tabGroup.add(pullRingPivot);
+      canGroup.add(tabGroup);
+
+      // Gotas de condensación 3D
+      const dropCount = 145;
+      const dropGeo = new THREE.SphereGeometry(0.025, 10, 10);
+      dropGeo.scale(1, 1.35, 0.65);
+      const dropsInstanced = new THREE.InstancedMesh(dropGeo, dropletMat, dropCount);
+      const dummy = new THREE.Object3D();
+      for (let i = 0; i < dropCount; i++) {
+        const theta = Math.random() * Math.PI * 2;
+        const yPos = (Math.random() - 0.5) * (H * 0.92);
+        const scale = 0.55 + Math.random() * 1.3;
+        dummy.position.set(Math.cos(theta) * (R + 0.008), yPos, Math.sin(theta) * (R + 0.008));
+        dummy.rotation.set(0, -theta + Math.PI / 2, 0);
+        dummy.scale.setScalar(scale);
+        dummy.updateMatrix();
+        dropsInstanced.setMatrixAt(i, dummy.matrix);
+      }
+      canGroup.add(dropsInstanced);
+
+      canGroup.userData = { labelMat, pullRingPivot, dropsInstanced, mouthMesh };
+      return canGroup;
+    }
+
+    const stageGroup = new THREE.Group();
+    scene.add(stageGroup);
+
+    const mainCan = buildSodaCanMesh(activeFlavor);
+    stageGroup.add(mainCan);
+
+    const leftCan = buildSodaCanMesh(FLAVORS[1]);
+    leftCan.position.set(-1.55, -0.18, -0.85);
+    leftCan.rotation.set(0.06, 0.42, 0.12);
+    leftCan.scale.setScalar(0.86);
+    leftCan.visible = false;
+    stageGroup.add(leftCan);
+
+    const rightCan = buildSodaCanMesh(FLAVORS[2]);
+    rightCan.position.set(1.55, -0.18, -0.85);
+    rightCan.rotation.set(0.06, -0.42, -0.12);
+    rightCan.scale.setScalar(0.86);
+    rightCan.visible = false;
+    stageGroup.add(rightCan);
+
+    // =========================================================================
+    // 4. GENERADOR DE SNAPSHOTS 3D PBR REALES PARA LAS TARJETAS DEL CATÁLOGO
+    // =========================================================================
+    function generateAll3DCanSnapshots() {
+      const prevFlavorTex = mainCan.userData.labelMat.map;
+      const prevRot = mainCan.rotation.clone();
+      const prevPos = mainCan.position.clone();
+
+      // Ajustar cámara para un retrato de producto impecable
+      const snapRenderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      snapRenderer.setSize(420, 620);
+      snapRenderer.setPixelRatio(2);
+      snapRenderer.toneMapping = THREE.ACESFilmicToneMapping;
+      snapRenderer.toneMappingExposure = 1.3;
+
+      const snapCam = new THREE.PerspectiveCamera(32, 420 / 620, 0.1, 50);
+      snapCam.position.set(0, 0.1, 5.7);
+      snapCam.lookAt(0, 0, 0);
+
+      mainCan.position.set(0, 0, 0);
+      mainCan.rotation.set(0.08, -0.12, 0.02);
+
+      FLAVORS.forEach(f => {
+        mainCan.userData.labelMat.map = getCanTexture(f);
+        mainCan.userData.labelMat.needsUpdate = true;
+        rimLight.color.setHex(f.accentHex);
+        snapRenderer.render(scene, snapCam);
+        canSnapshotCache.set(f.id, snapRenderer.domElement.toDataURL('image/png'));
+      });
+
+      // Restaurar estado original
+      mainCan.userData.labelMat.map = prevFlavorTex;
+      mainCan.rotation.copy(prevRot);
+      mainCan.position.copy(prevPos);
+      rimLight.color.setHex(activeFlavor.accentHex);
+      snapRenderer.dispose();
+    }
+    generateAll3DCanSnapshots();
+
+    // Burbujas 3D en el escenario
+    const bubblesGroup = new THREE.Group();
+    scene.add(bubblesGroup);
+    const bubbleGeo = new THREE.SphereGeometry(0.042, 14, 14);
+    const bubbleData = [];
+    for (let i = 0; i < 42; i++) {
+      const bMesh = new THREE.Mesh(bubbleGeo, dropletMat);
+      const radius = 1.05 + Math.random() * 1.35;
+      const angle = Math.random() * Math.PI * 2;
+      const y = (Math.random() - 0.5) * 4.0;
+      const speed = 0.007 + Math.random() * 0.015;
+      bMesh.scale.setScalar(0.4 + Math.random() * 1.4);
+      bubblesGroup.add(bMesh);
+      bubbleData.push({ mesh: bMesh, radius, angle, y, speed });
+    }
+
+    const fizzParticles = [];
+    const fizzGeo = new THREE.SphereGeometry(0.024, 8, 8);
+    function triggerFizzBurst() {
+      for (let i = 0; i < 40; i++) {
+        const p = new THREE.Mesh(fizzGeo, dropletMat);
+        p.position.set(0, 1.68, 0.18);
+        scene.add(p);
+        fizzParticles.push({
+          mesh: p,
+          vx: (Math.random() - 0.5) * 0.085,
+          vy: 0.05 + Math.random() * 0.11,
+          vz: (Math.random() - 0.5) * 0.085,
+          life: 1.0
+        });
+      }
+    }
+
+    function playSodaOpenSound() {
+      try {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        const ctx = new AudioCtx();
+        const osc = ctx.createOscillator();
+        const clickGain = ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(1400, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(280, ctx.currentTime + 0.065);
+        clickGain.gain.setValueAtTime(0.4, ctx.currentTime);
+        clickGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.065);
+        osc.connect(clickGain).connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.07);
+
+        const bufferSize = ctx.sampleRate * 0.8;
+        const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+        const output = noiseBuffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) output[i] = Math.random() * 2 - 1;
+        const whiteNoise = ctx.createBufferSource();
+        whiteNoise.buffer = noiseBuffer;
+
+        const bandpass = ctx.createBiquadFilter();
+        bandpass.type = 'bandpass';
+        bandpass.frequency.setValueAtTime(4200, ctx.currentTime + 0.04);
+        bandpass.Q.setValueAtTime(1.8, ctx.currentTime + 0.04);
+
+        const hissGain = ctx.createGain();
+        hissGain.gain.setValueAtTime(0.001, ctx.currentTime);
+        hissGain.gain.linearRampToValueAtTime(0.34, ctx.currentTime + 0.07);
+        hissGain.gain.exponentialRampToValueAtTime(0.008, ctx.currentTime + 0.78);
+
+        whiteNoise.connect(bandpass).connect(hissGain).connect(ctx.destination);
+        whiteNoise.start(ctx.currentTime + 0.04);
+      } catch (e) {}
+    }
+
+    // =========================================================================
+    // 5. ANIMACIÓN 3D CON TRANSICIÓN SUAVE AL REVERSO NUTRICIONAL
+    // =========================================================================
+    let spinVelocity = 0;
+    let targetBackAngle = null;
+    const clock = new THREE.Clock();
+
+    function animate() {
+      requestAnimationFrame(animate);
+      const t = clock.getElapsedTime();
+
+      mainCan.position.y = Math.sin(t * 2.0) * 0.07;
+
+      if (isInspectingBack && targetBackAngle !== null) {
+        // Interpolación suave hacia la tabla nutricional trasera y pausa del giro
+        mainCan.rotation.y += (targetBackAngle - mainCan.rotation.y) * 0.09;
+        mainCan.rotation.z += (0 - mainCan.rotation.z) * 0.1;
+      } else {
+        mainCan.rotation.z = Math.sin(t * 1.2) * 0.035;
+        if (spinVelocity > 0.001) {
+          mainCan.rotation.y += spinVelocity;
+          spinVelocity *= 0.92;
+        } else {
+          mainCan.rotation.y += 0.0032;
+        }
+      }
+
+      if (isTrioMode) {
+        leftCan.position.y = -0.18 + Math.sin(t * 2.0 + 1.2) * 0.06;
+        rightCan.position.y = -0.18 + Math.sin(t * 2.0 + 2.4) * 0.06;
+        leftCan.rotation.y += 0.0028;
+        rightCan.rotation.y -= 0.0028;
+      }
+
+      bubbleData.forEach(b => {
+        b.y += b.speed;
+        b.angle += 0.005;
+        if (b.y > 2.1) b.y = -2.1;
+        b.mesh.position.set(Math.cos(b.angle) * b.radius, b.y, Math.sin(b.angle) * b.radius);
+      });
+
+      for (let i = fizzParticles.length - 1; i >= 0; i--) {
+        const fp = fizzParticles[i];
+        fp.mesh.position.x += fp.vx;
+        fp.mesh.position.y += fp.vy;
+        fp.mesh.position.z += fp.vz;
+        fp.vy -= 0.003;
+        fp.life -= 0.025;
+        fp.mesh.scale.setScalar(Math.max(0.01, fp.life));
+        if (fp.life <= 0) {
+          scene.remove(fp.mesh);
+          fizzParticles.splice(i, 1);
+        }
+      }
+
+      controls.update();
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = container.clientWidth / container.clientHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(container.clientWidth, container.clientHeight);
+    });
+
+    // =========================================================================
+    // 6. SINCRONIZACIÓN DE UI, BUY BOX Y CONTROLES 3D
+    // =========================================================================
+    function updateHeroPricingUI() {
+      const base = activeFlavor.price;
+      const singleP = base;
+      const pack6P = +(base * 6 * (1 - 0.14)).toFixed(2);
+      const pack12P = +(base * 12 * (1 - 0.22)).toFixed(2);
+
+      document.getElementById('priceSingle').textContent = `$${singleP.toFixed(2)}`;
+      document.getElementById('pricePack6').textContent = `$${pack6P.toFixed(2)}`;
+      document.getElementById('pricePack12').textContent = `$${pack12P.toFixed(2)}`;
+
+      let selectedUnitPrice = pack6P;
+      if (activeFormat.code === 'single') selectedUnitPrice = singleP;
+      if (activeFormat.code === 'pack12') selectedUnitPrice = pack12P;
+
+      const totalCta = (selectedUnitPrice * heroQty).toFixed(2);
+      document.getElementById('heroCtaPrice').textContent = `$${totalCta}`;
+    }
+
+    function updateNutritionOverlay(flavor) {
+      document.getElementById('ovCal').textContent = flavor.cal;
+      document.getElementById('ovFiber').textContent = `${flavor.fiber} (18%)`;
+      document.getElementById('ovSugar').textContent = flavor.sugar;
+      document.getElementById('ovIngredients').textContent = flavor.ingredients;
+    }
+
+    function selectFlavor(flavor, scrollToHero = false) {
+      activeFlavor = flavor;
+
+      document.documentElement.style.setProperty('--accent', flavor.primary);
+      document.documentElement.style.setProperty('--accent-2', flavor.secondary);
+      document.documentElement.style.setProperty('--accent-glow', flavor.glow);
+
+      document.getElementById('flavorIndexBadge').textContent = `Sabor ${flavor.index} / 06`;
+      document.getElementById('heroFlavorTitle').textContent = flavor.name;
+      document.getElementById('heroFlavorDesc').textContent = flavor.desc;
+      document.getElementById('selectedFlavorName').textContent = `${flavor.emoji} ${flavor.name}`;
+      document.getElementById('statCal').textContent = flavor.cal;
+      document.getElementById('statSugar').textContent = flavor.sugar;
+      document.getElementById('statFiber').textContent = flavor.fiber;
+      document.getElementById('stageWatermark').innerHTML = flavor.watermark.replace('\n', '<br>');
+
+      document.querySelectorAll('.swatch-btn').forEach(btn => {
+        const isCurrent = btn.dataset.id === flavor.id;
+        btn.classList.toggle('active', isCurrent);
+        btn.setAttribute('aria-checked', isCurrent ? 'true' : 'false');
+      });
+
+      mainCan.userData.labelMat.map = getCanTexture(flavor);
+      mainCan.userData.labelMat.needsUpdate = true;
+      rimLight.color.setHex(flavor.accentHex);
+
+      if (!isInspectingBack) {
+        spinVelocity = 0.26;
+      }
+      updateHeroPricingUI();
+      updateNutritionOverlay(flavor);
+
+      if (scrollToHero) {
+        document.getElementById('visor3d').scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // Poblar Swatches de Sabor
+    const swatchesContainer = document.getElementById('flavorSwatches');
+    FLAVORS.forEach((f, i) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = `swatch-btn ${i === 0 ? 'active' : ''}`;
+      btn.dataset.id = f.id;
+      btn.setAttribute('role', 'radio');
+      btn.setAttribute('aria-checked', i === 0 ? 'true' : 'false');
+      btn.innerHTML = `
+        <span class="swatch-btn__dot" style="background:linear-gradient(135deg, ${f.primary}, ${f.secondary})">${f.emoji}</span>
+        <span class="swatch-btn__name">${f.shortName}</span>
+      `;
+      btn.addEventListener('click', () => selectFlavor(f));
+      swatchesContainer.appendChild(btn);
+    });
+    updateNutritionOverlay(activeFlavor);
+    updateHeroPricingUI();
+
+    // Selector de Formato en Buy Box
+    document.getElementById('formatSelector').addEventListener('click', (e) => {
+      const opt = e.target.closest('.pack-opt');
+      if (!opt) return;
+      document.querySelectorAll('.pack-opt').forEach(b => b.classList.remove('active'));
+      opt.classList.add('active');
+      const code = opt.dataset.format;
+      const mult = parseInt(opt.dataset.mult, 10);
+      const discount = parseFloat(opt.dataset.discount);
+      const label = code === 'single' ? 'Lata 355ml' : (code === 'pack6' ? 'Six-Pack (x6)' : 'Caja x12 Latas');
+      activeFormat = { code, label, mult, discount };
+      updateHeroPricingUI();
+    });
+
+    document.getElementById('heroQtyDec').addEventListener('click', () => {
+      if (heroQty > 1) {
+        heroQty--;
+        document.getElementById('heroQtyVal').textContent = heroQty;
+        updateHeroPricingUI();
+      }
+    });
+    document.getElementById('heroQtyInc').addEventListener('click', () => {
+      heroQty++;
+      document.getElementById('heroQtyVal').textContent = heroQty;
+      updateHeroPricingUI();
+    });
+
+    document.getElementById('heroAddCartBtn').addEventListener('click', () => {
+      const unitPrice = +(activeFlavor.price * activeFormat.mult * (1 - activeFormat.discount)).toFixed(2);
+      addToCart({
+        id: `${activeFlavor.id}-${activeFormat.code}`,
+        flavorId: activeFlavor.id,
+        name: `${activeFlavor.name} · ${activeFormat.label}`,
+        price: unitPrice,
+        qty: heroQty
+      });
+    });
+
+    // Controles del Visor 3D
+    document.getElementById('btnZoomIn').addEventListener('click', () => {
+      camera.position.z = Math.max(3.8, camera.position.z - 0.65);
+    });
+    document.getElementById('btnZoomOut').addEventListener('click', () => {
+      camera.position.z = Math.min(8.2, camera.position.z + 0.65);
+    });
+    document.getElementById('btnResetCam').addEventListener('click', () => {
+      controls.reset();
+      camera.position.set(0, 0.1, 6.8);
+      isInspectingBack = false;
+      document.getElementById('nutritionOverlay').classList.remove('open');
+      document.getElementById('btnInspectBack').classList.remove('active');
+    });
+
+    document.getElementById('btnPopCan').addEventListener('click', () => {
+      playSodaOpenSound();
+      triggerFizzBurst();
+      const ring = mainCan.userData.pullRingPivot;
+      ring.rotation.x = -0.68;
+      setTimeout(() => { ring.rotation.x = -0.22; }, 450);
+      showToast(`🥫 ¡Pssshhht! Destapaste ${activeFlavor.name} bien fría`);
+    });
+
+    document.getElementById('btnInspectBack').addEventListener('click', (e) => {
+      isInspectingBack = !isInspectingBack;
+      e.currentTarget.classList.toggle('active', isInspectingBack);
+      document.getElementById('nutritionOverlay').classList.toggle('open', isInspectingBack);
+      if (isInspectingBack) {
+        controls.reset();
+        camera.position.set(0, 0.15, 5.4);
+        // Alinear hacia la tabla nutricional del reverso
+        const currentCycles = Math.round(mainCan.rotation.y / (Math.PI * 2));
+        targetBackAngle = currentCycles * Math.PI * 2 + Math.PI * 0.82;
+      }
+    });
+
+    document.getElementById('closeNutriOverlay').addEventListener('click', () => {
+      isInspectingBack = false;
+      document.getElementById('nutritionOverlay').classList.remove('open');
+      document.getElementById('btnInspectBack').classList.remove('active');
+    });
+
+    document.getElementById('btnToggleTrio').addEventListener('click', (e) => {
+      isTrioMode = !isTrioMode;
+      leftCan.visible = isTrioMode;
+      rightCan.visible = isTrioMode;
+      e.currentTarget.classList.toggle('active', isTrioMode);
+      spinVelocity = 0.16;
+    });
+
+    document.getElementById('btnToggleFrost').addEventListener('click', (e) => {
+      isFrostEnabled = !isFrostEnabled;
+      mainCan.userData.dropsInstanced.visible = isFrostEnabled;
+      leftCan.userData.dropsInstanced.visible = isFrostEnabled;
+      rightCan.userData.dropsInstanced.visible = isFrostEnabled;
+      e.currentTarget.classList.toggle('active', isFrostEnabled);
+    });
+
+    // =========================================================================
+    // 7. CATÁLOGO CON IMÁGENES 3D PBR + INCLINACIÓN TILT 3D
+    // =========================================================================
+    const catalogGrid = document.getElementById('catalogGrid');
+
+    function renderCatalog(filter = 'all') {
+      catalogGrid.innerHTML = '';
+      const items = filter === 'all' ? FLAVORS : FLAVORS.filter(f => f.category === filter);
+
+      items.forEach(flavor => {
+        const snapUrl = canSnapshotCache.get(flavor.id);
+        const card = document.createElement('article');
+        card.className = 'product-card';
+        card.style.setProperty('--card-accent', flavor.primary);
+        card.style.setProperty('--card-glow', flavor.glow);
+
+        card.innerHTML = `
+          <div>
+            <div class="product-card__visual" title="Haz clic para inspeccionar esta lata en el Estudio 3D 360°">
+              <span class="product-card__badge">${flavor.badge}</span>
+              <img class="product-card__can-img" src="${snapUrl}" alt="Lata 3D de ${flavor.name}" loading="lazy" />
+              <button type="button" class="product-card__3d-btn" data-inspect="${flavor.id}">
+                🔄 Girar en 3D 360°
+              </button>
+            </div>
+            <div class="product-card__specs">
+              <span class="spec-pill">${flavor.cal} kcal</span>
+              <span class="spec-pill">${flavor.sugar} azúcar</span>
+              <span class="spec-pill">${flavor.fiber} prebióticos</span>
+            </div>
+            <h3 class="product-card__title">${flavor.name}</h3>
+            <div class="product-card__tagline">${flavor.tagline}</div>
+            <p class="product-card__desc">${flavor.desc}</p>
+          </div>
+          <div class="product-card__footer">
+            <div class="product-card__price">
+              $${flavor.price.toFixed(2)}
+              <small>Lata 355ml · Six-pack $14.90</small>
+            </div>
+            <div style="display:flex; gap:6px;">
+              <button type="button" class="btn btn--secondary btn--sm" data-add-single="${flavor.id}" title="Añadir 1 lata">
+                +1 Lata
+              </button>
+              <button type="button" class="btn btn--primary btn--sm" data-add-pack="${flavor.id}">
+                + Pack x6
+              </button>
+            </div>
+          </div>
+        `;
+
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const pctX = (e.clientX - rect.left) / rect.width - 0.5;
+          const pctY = (e.clientY - rect.top) / rect.height - 0.5;
+          card.style.transform = `perspective(1000px) rotateX(${-pctY * 12}deg) rotateY(${pctX * 14}deg) translateY(-4px)`;
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+        });
+
+        card.querySelector('.product-card__visual').addEventListener('click', () => {
+          selectFlavor(flavor, true);
+        });
+        card.querySelector('[data-add-single]').addEventListener('click', () => {
+          addToCart({
+            id: `${flavor.id}-single`,
+            flavorId: flavor.id,
+            name: `${flavor.name} · Lata 355ml`,
+            price: flavor.price,
+            qty: 1
+          });
+        });
+        card.querySelector('[data-add-pack]').addEventListener('click', () => {
+          addToCart({
+            id: `${flavor.id}-pack6`,
+            flavorId: flavor.id,
+            name: `${flavor.name} · Six-Pack (x6)`,
+            price: 14.90,
+            qty: 1
+          });
+        });
+
+        catalogGrid.appendChild(card);
+      });
+    }
+    renderCatalog();
+
+    document.getElementById('catalogFilters').addEventListener('click', (e) => {
+      const btn = e.target.closest('.filter-pill');
+      if (!btn) return;
+      document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderCatalog(btn.dataset.filter);
+    });
+
+    // =========================================================================
+    // 8. CONFIGURADOR SIX-PACK CON MINIATURAS 3D PBR
+    // =========================================================================
+    let packSlots = [FLAVORS[0], FLAVORS[1], FLAVORS[2], FLAVORS[3], FLAVORS[4], FLAVORS[5]];
+    const packPickerGrid = document.getElementById('packPickerGrid');
+    const packSlotsGrid = document.getElementById('packSlotsGrid');
+
+    FLAVORS.forEach(f => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'pack-add-btn';
+      btn.innerHTML = `
+        <span>${f.emoji} ${f.name}</span>
+        <span style="color:var(--accent); font-weight:800;">+ Añadir</span>
+      `;
+      btn.addEventListener('click', () => {
+        const emptyIndex = packSlots.findIndex(s => s === null);
+        if (emptyIndex !== -1) {
+          packSlots[emptyIndex] = f;
+        } else {
+          packSlots.shift();
+          packSlots.push(f);
+        }
+        renderPackTray();
+      });
+      packPickerGrid.appendChild(btn);
+    });
+
+    function renderPackTray() {
+      packSlotsGrid.innerHTML = '';
+      const count = packSlots.filter(Boolean).length;
+      document.getElementById('customBoxBtnCount').textContent = `${count}/6`;
+
+      packSlots.forEach((slotFlavor, idx) => {
+        const slot = document.createElement('div');
+        slot.className = `tray-slot ${slotFlavor ? 'filled' : ''}`;
+        if (slotFlavor) {
+          slot.innerHTML = `
+            <button type="button" class="tray-slot__rm" aria-label="Quitar lata">✕</button>
+            <img class="tray-slot__img" src="${canSnapshotCache.get(slotFlavor.id)}" alt="${slotFlavor.name}" />
+            <span class="tray-slot__lbl">${slotFlavor.shortName}</span>
+          `;
+          slot.addEventListener('click', () => {
+            packSlots[idx] = null;
+            renderPackTray();
+          });
+        } else {
+          slot.innerHTML = `
+            <span style="font-size:1.3rem; opacity:0.35;">＋</span>
+            <span class="tray-slot__lbl" style="color:var(--text-muted)">Espacio ${idx + 1}</span>
+          `;
+        }
+        packSlotsGrid.appendChild(slot);
+      });
+    }
+    renderPackTray();
+
+    document.getElementById('resetPackBtn').addEventListener('click', () => {
+      packSlots = [null, null, null, null, null, null];
+      renderPackTray();
+    });
+
+    document.getElementById('addCustomBoxBtn').addEventListener('click', () => {
+      const filled = packSlots.filter(Boolean);
+      if (filled.length < 6) {
+        showToast(`⚠️ Selecciona ${6 - filled.length} lata(s) más para completar los 6 espacios`);
+        return;
+      }
+      const emojis = filled.map(f => f.emoji).join('');
+      addToCart({
+        id: 'custom-pack-' + Date.now(),
+        flavorId: filled[0].id,
+        name: `Six-Pack Personalizado (${emojis})`,
+        price: 14.90,
+        qty: 1
+      });
+    });
+
+    // =========================================================================
+    // 9. CARRITO D2C CON CUPÓN PROMOCIONAL Y MODAL DE CONFIRMACIÓN
+    // =========================================================================
+    let cart = [
+      { id: 'cherry-pack6', flavorId: 'cherry', name: 'Cereza Cósmica · Six-Pack (x6)', price: 14.90, qty: 1 },
+      { id: 'citrus-single', flavorId: 'citrus', name: 'Cítrico Eléctrico · Lata 355ml', price: 2.90, qty: 2 }
+    ];
+
+    function addToCart(newItem) {
+      const existing = cart.find(c => c.id === newItem.id);
+      if (existing) {
+        existing.qty += newItem.qty;
+      } else {
+        cart.push({ ...newItem });
+      }
+      updateCartUI();
+      showToast(`🛒 Añadido: ${newItem.name}`);
+    }
+
+    function updateCartUI() {
+      const totalItems = cart.reduce((sum, i) => sum + i.qty, 0);
+      const subtotal = cart.reduce((sum, i) => sum + i.price * i.qty, 0);
+      const discount = promoApplied ? +(subtotal * 0.15).toFixed(2) : 0;
+      const afterDiscount = subtotal - discount;
+      const shipping = (afterDiscount >= 25 || afterDiscount === 0) ? 0 : 3.90;
+      const total = afterDiscount + shipping;
+
+      document.getElementById('cartCount').textContent = totalItems;
+      document.getElementById('cartSubtotal').textContent = `$${subtotal.toFixed(2)}`;
+      document.getElementById('discountRow').style.display = promoApplied ? 'flex' : 'none';
+      document.getElementById('cartDiscount').textContent = `-$${discount.toFixed(2)}`;
+      document.getElementById('cartShipping').textContent = shipping === 0 ? 'GRATIS' : `$${shipping.toFixed(2)}`;
+      document.getElementById('cartTotal').textContent = `$${total.toFixed(2)}`;
+
+      const pct = Math.min(100, (afterDiscount / 25) * 100);
+      document.getElementById('shippingBar').style.width = `${pct}%`;
+      document.getElementById('shippingMsg').innerHTML =
+        afterDiscount >= 25
+          ? '🎉 <strong>¡Envío refrigerado GRATIS desbloqueado!</strong>'
+          : `Te faltan <strong>$${(25 - afterDiscount).toFixed(2)}</strong> para envío refrigerado GRATIS`;
+
+      const listEl = document.getElementById('cartList');
+      if (cart.length === 0) {
+        listEl.innerHTML = `<p style="color:var(--text-muted); text-align:center; margin-top:40px;">Tu cesta está vacía. ¡Elige tu lata 3D favorita!</p>`;
+        return;
+      }
+
+      listEl.innerHTML = '';
+      cart.forEach((item, idx) => {
+        const row = document.createElement('div');
+        row.className = 'cart-row';
+        row.innerHTML = `
+          <img class="cart-row__thumb" src="${canSnapshotCache.get(item.flavorId || 'cherry')}" alt="" />
+          <div class="cart-row__info">
+            <div class="cart-row__title">${item.name}</div>
+            <div class="cart-row__price">$${item.price.toFixed(2)} c/u</div>
+          </div>
+          <div class="qty-stepper" style="padding:0 4px;">
+            <button type="button" data-dec="${idx}" style="width:26px;height:28px;font-size:0.95rem;">−</button>
+            <span style="font-size:0.82rem;min-width:20px;">${item.qty}</span>
+            <button type="button" data-inc="${idx}" style="width:26px;height:28px;font-size:0.95rem;">+</button>
+          </div>
+        `;
+        row.querySelector('[data-dec]').addEventListener('click', () => {
+          item.qty--;
+          if (item.qty <= 0) cart.splice(idx, 1);
+          updateCartUI();
+        });
+        row.querySelector('[data-inc]').addEventListener('click', () => {
+          item.qty++;
+          updateCartUI();
+        });
+        listEl.appendChild(row);
+      });
+    }
+    updateCartUI();
+
+    // Cupón Promocional FIZZ3D
+    function applyPromoCode(code) {
+      if (code.trim().toUpperCase() === 'FIZZ3D') {
+        promoApplied = true;
+        updateCartUI();
+        showToast('🎉 ¡Cupón FIZZ3D aplicado! 15% de descuento activo');
+      } else {
+        showToast('⚠️ Código no válido. Prueba con FIZZ3D');
+      }
+    }
+
+    document.getElementById('promoForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      applyPromoCode(document.getElementById('promoInput').value);
+    });
+
+    document.getElementById('copyPromoBtn').addEventListener('click', () => {
+      navigator.clipboard?.writeText('FIZZ3D');
+      document.getElementById('promoInput').value = 'FIZZ3D';
+      applyPromoCode('FIZZ3D');
+    });
+
+    // Abrir / Cerrar Carrito y Modal
+    const cartDrawer = document.getElementById('cartDrawer');
+    const cartBackdrop = document.getElementById('cartBackdrop');
+    const checkoutModal = document.getElementById('checkoutModal');
+
+    document.getElementById('openCartBtn').addEventListener('click', () => {
+      cartDrawer.classList.add('open');
+      cartBackdrop.classList.add('open');
+    });
+    document.getElementById('closeCartBtn').addEventListener('click', () => {
+      cartDrawer.classList.remove('open');
+      cartBackdrop.classList.remove('open');
+    });
+    cartBackdrop.addEventListener('click', () => {
+      cartDrawer.classList.remove('open');
+      cartBackdrop.classList.remove('open');
+      checkoutModal.classList.remove('open');
+    });
+
+    document.getElementById('checkoutBtn').addEventListener('click', () => {
+      if (cart.length === 0) return;
+      playSodaOpenSound();
+      cartDrawer.classList.remove('open');
+      document.getElementById('orderNumber').textContent = `#KF-${Math.floor(1000 + Math.random() * 9000)}`;
+      checkoutModal.classList.add('open');
+      cart = [];
+      updateCartUI();
+    });
+
+    document.getElementById('closeModalBtn').addEventListener('click', () => {
+      checkoutModal.classList.remove('open');
+      cartBackdrop.classList.remove('open');
+    });
+
+    let toastTimer = null;
+    function showToast(msg) {
+      const t = document.getElementById('toastMsg');
+      t.textContent = msg;
+      t.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => t.classList.remove('show'), 3200);
+    }
+  </script>
+</body>
+</html>
